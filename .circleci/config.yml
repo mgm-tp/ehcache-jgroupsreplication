@@ -52,7 +52,7 @@ jobs:
       - run:
           name: Push to Artifactory
           command: |
-	    ./jfrog bt config  --user konikvranik --key 57cbdbcc0ee46556d56eebd61c1c068b362f3925 --licenses Apache-2.0
+            ./jfrog bt config  --user konikvranik --key 57cbdbcc0ee46556d56eebd61c1c068b362f3925 --licenses Apache-2.0
             ./jfrog bt u ~/repo/build/libs/ehcache-jgroupsreplication-2.0.0.jar konikvranik/ehcache-jgroupsreplication/ehcache-jgroupsreplication/2.0.0 --publish
 
 
