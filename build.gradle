@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+
+group = 'net.sf.ehcache'
+version = '2.0.0'
+
+description = """JGroups Replication"""
+
+sourceCompatibility = 8
+targetCompatibility = 8
+
+
+
+repositories {
+        
+     maven { url "http://central" }
+}
+dependencies {
+    compile group: 'net.sf.ehcache', name: 'ehcache', version:'2.10.6'
+    compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.29'
+    compile group: 'org.jgroups', name: 'jgroups', version:'4.2.1.Final'
+}
