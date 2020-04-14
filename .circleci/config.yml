@@ -38,8 +38,8 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle" }}
 
-      # run tests!
-      - run: ./gradlew test
+      # build it!
+      - run: ./gradlew build
 
       - store_artifacts:
           path: ~/repo/build/libs/ehcache-jgroupsreplication-*.jar
