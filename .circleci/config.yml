@@ -42,4 +42,4 @@ jobs:
       - run: ./gradlew build
 
       - store_artifacts:
-          path: ~/repo/build/libs/ehcache-jgroupsreplication-*.jar
+          path: ~/repo/build/libs/
