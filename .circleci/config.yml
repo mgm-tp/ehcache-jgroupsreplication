@@ -52,9 +52,7 @@ jobs:
       - run:
           name: Push to Artifactory
           command: |
-            ./jfrog rt config --url $ARTIFACTORY_URL --user $ARTIFACTORY_USER --apikey $ARTIFACTORY_APIKEY --interactive=false
-            ./jfrog rt u ~/repo/build/libs/ ehcache-jgroupsreplication --build-name=ehcache-jgroupsreplication --build-number=$CIRCLE_BUILD_NUM
-            ./jfrog rt bce ehcache-jgroupsreplication $CIRCLE_BUILD_NUM  # collects all environment variables on the agent
-            ./jfrog rt bp ehcache-jgroupsreplication $CIRCLE_BUILD_NUM  # attaches ^^ to the build in artifactory
+	    ./jfrog bt config  --user konikvranik --key 57cbdbcc0ee46556d56eebd61c1c068b362f3925 --licenses Apache-2.0
+            ./jfrog bt u ~/repo/build/libs/ehcache-jgroupsreplication-2.0.0.jar konikvranik/ehcache-jgroupsreplication/ehcache-jgroupsreplication/2.0.0 --publish
 
 
