@@ -15,7 +15,7 @@ repositories {
     mavenCentral() 
 }
 dependencies {
-    compile group: 'org.ehcache', name: 'ehcache', version:'3.9.0'
+    compile group: 'net.sf.ehcache', name: 'ehcache', version:'2.10.6'
     compile group: 'org.slf4j', name: 'slf4j-api', version:'1.7.29'
     compile group: 'org.jgroups', name: 'jgroups', version:'4.2.1.Final'
 }
