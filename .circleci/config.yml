@@ -42,6 +42,5 @@ jobs:
       - run: gradle test
 
       - store_artifacts:
-          path: /tmp/artifact-1
-          destination: artifact-file
+          path: build/libs/ehcache-jgroupsreplication-*.jar
 
