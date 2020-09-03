@@ -179,11 +179,11 @@ public class JGroupsBootstrapManager {
 			try {
 				future.get(BOOTSTRAP_RESPONSE_MAX_TIMEOUT, TimeUnit.MILLISECONDS);
 			} catch (InterruptedException e) {
-				LOG.warn("Interrupted while waiting for bootstrap of " + cacheName + " to complete", e);
+				LOG.warn("Interrupted while waiting for bootstrap of {} to complete", cacheName, e);
 			} catch (ExecutionException e) {
-				LOG.warn("Exception thrown while bootstrapping " + cacheName, e);
+				LOG.warn("Exception thrown while bootstrapping {}", cacheName, e);
 			} catch (TimeoutException e) {
-				LOG.warn("Timed out waiting " + BOOTSTRAP_RESPONSE_MAX_TIMEOUT + "ms for bootstrap of " + cacheName + " to complete", e);
+				LOG.warn("Timed out waiting {} ms for bootstrap of {} to complete", BOOTSTRAP_RESPONSE_MAX_TIMEOUT, cacheName, e);
 			}
 		}
 	}
@@ -274,7 +274,7 @@ public class JGroupsBootstrapManager {
 			try {
 				final List<Address> addresses = cachePeer.getOtherGroupMembers();
 
-				if (addresses == null || addresses.size() == 0) {
+				if (addresses.isEmpty()) {
 					LOG.info("There are no other nodes in the cluster to bootstrap {} from", cacheName);
 					return;
 				}
@@ -333,10 +333,10 @@ public class JGroupsBootstrapManager {
 						return;
 					}
 
-					LOG.debug("Bootstrap of {} did not complete in {}ms, will wait {} more times.",
+					LOG.debug("Bootstrap of {} did not complete in {} ms, will wait {} more times.",
 						cacheName, BOOTSTRAP_RESPONSE_TIMEOUT * waitTry, BOOTSTRAP_RESPONSE_TRIES - waitTry);
 				} catch (InterruptedException e) {
-					LOG.warn("Interrupted while waiting for bootstrap of " + cacheName + " to complete", e);
+					LOG.warn("Interrupted while waiting for bootstrap of {} to complete", cacheName, e);
 				}
 			}
 
@@ -393,7 +393,7 @@ public class JGroupsBootstrapManager {
 				final List<?> keys = cache.getKeys();
 
 				//Skip any real work if the cache is empty.
-				if (keys == null || keys.size() == 0) {
+				if (keys.isEmpty()) {
 					LOG.debug("no keys to reply to {} to bootstrap cache {}", requestAddress, cacheName);
 				} else {
 					final List<JGroupEventMessage> messageList = new ArrayList<>(Math.min(keys.size(), BOOTSTRAP_CHUNK_SIZE));

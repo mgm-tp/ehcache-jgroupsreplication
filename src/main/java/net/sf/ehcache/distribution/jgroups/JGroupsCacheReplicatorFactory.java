@@ -48,12 +48,6 @@ public class JGroupsCacheReplicatorFactory extends CacheEventListenerFactory {
 	private static final String REPLICATE_ASYNCHRONOUSLY = "replicateAsynchronously";
 
 	/**
-	 * Empty arg constructor
-	 */
-	public JGroupsCacheReplicatorFactory() {
-	}
-
-	/**
 	 * {@inheritDoc}
 	 */
 	@Override
